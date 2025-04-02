@@ -1,9 +1,22 @@
+using System;
 using System.Diagnostics;
+using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace Il2CppDumper_GUI
 {
     public partial class Main : Form
     {
+        // Import necessary Windows API functions
+        [DllImport("user32.dll")]
+        public static extern bool PostMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+
+        private const int WM_NCLBUTTONDOWN = 0xA1;
+        private const int HTCAPTION = 0x2;
+
         private string AssemblyPath { get; set; } = "";
         private string MetadataPath { get; set; } = "";
         private readonly string outputDir = Path.Combine(Directory.GetCurrentDirectory(), "output");
@@ -14,6 +27,19 @@ namespace Il2CppDumper_GUI
         public Main()
         {
             InitializeComponent();
+            TopBar.MouseDown += TopBar_MouseDown;
+            CloseButton.MouseHover += pictureBox1_MouseHover;
+            CloseButton.MouseLeave += pictureBox1_MouseLeave;
+        }
+
+
+        private void TopBar_MouseDown(object? sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                PostMessage(this.Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -76,7 +102,7 @@ namespace Il2CppDumper_GUI
                     OpenMetaDataBrowser.ShowDialog();
                 }
 
-                GameDirectoryTextBox.Text = GameDirectoryBrowser.SelectedPath;
+                GameDirText.Text = GameDirectoryBrowser.SelectedPath;
             }
         }
 
@@ -338,6 +364,47 @@ namespace Il2CppDumper_GUI
             {
                 MessageBox.Show("No output found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            // Close the application
+            Application.Exit();
+        }
+        private void pictureBox1_MouseHover(object sender, EventArgs e)
+        {
+        }
+
+        private void pictureBox1_MouseLeave(object sender, EventArgs e)
+        {
+        }
+
+        private void MinimizeButton_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void MinimizeButton_MouseHover(object sender, EventArgs e)
+        {
+        }
+
+        private void MinimizeButton_MouseLeave(object sender, EventArgs e)
+        {
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GameDirText_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
