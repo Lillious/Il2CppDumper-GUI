@@ -260,6 +260,10 @@ namespace Il2CppDumper_GUI
             Directory.CreateDirectory(UnhollowerOutputDir);
 
             string UnhollowerArguments = $"--input=\"{dummyDllDir}\" --output=\"{UnhollowerOutputDir}\" --mscorlib=\"{msCoreLibPath}\"";
+            if (VerboseCheckbox.Checked)
+            {
+                UnhollowerArguments += " --verbose";
+            }
             // Check if Unhollower exists
             if (!File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "binaries", "AssemblyUnhollower.exe")))
             {

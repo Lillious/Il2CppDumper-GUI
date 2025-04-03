@@ -32,7 +32,6 @@
             dump = new Button();
             SelectGameFolder = new Button();
             SelectGameLabel = new Label();
-            GameDirectoryTextBox = new TextBox();
             GameDirectoryBrowser = new FolderBrowserDialog();
             OpenDllBrowser = new OpenFileDialog();
             OpenMetaDataBrowser = new OpenFileDialog();
@@ -45,9 +44,12 @@
             MinimizeButton = new PictureBox();
             CloseButton = new PictureBox();
             GameDirText = new Button();
+            VerboseCheckbox = new CheckBox();
+            panel1 = new Panel();
             TopBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)MinimizeButton).BeginInit();
             ((System.ComponentModel.ISupportInitialize)CloseButton).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // dump
@@ -59,6 +61,7 @@
             dump.FlatAppearance.MouseDownBackColor = Color.FromArgb(21, 27, 35);
             dump.FlatAppearance.MouseOverBackColor = Color.FromArgb(21, 27, 35);
             dump.FlatStyle = FlatStyle.Flat;
+            dump.Font = new Font("Verdana", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dump.ForeColor = Color.FromArgb(68, 147, 248);
             dump.Location = new Point(384, 384);
             dump.Name = "dump";
@@ -76,6 +79,7 @@
             SelectGameFolder.FlatAppearance.MouseDownBackColor = Color.FromArgb(21, 27, 35);
             SelectGameFolder.FlatAppearance.MouseOverBackColor = Color.FromArgb(21, 27, 35);
             SelectGameFolder.FlatStyle = FlatStyle.Flat;
+            SelectGameFolder.Font = new Font("Verdana", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             SelectGameFolder.ForeColor = Color.FromArgb(68, 147, 248);
             SelectGameFolder.Location = new Point(12, 78);
             SelectGameFolder.Name = "SelectGameFolder";
@@ -89,27 +93,12 @@
             // SelectGameLabel
             // 
             SelectGameLabel.Font = new Font("Microsoft JhengHei", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            SelectGameLabel.Location = new Point(0, 31);
+            SelectGameLabel.Location = new Point(4, 31);
             SelectGameLabel.Name = "SelectGameLabel";
-            SelectGameLabel.Size = new Size(149, 44);
+            SelectGameLabel.Size = new Size(145, 44);
             SelectGameLabel.TabIndex = 9;
             SelectGameLabel.Text = "Game Directory";
             SelectGameLabel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // GameDirectoryTextBox
-            // 
-            GameDirectoryTextBox.BackColor = Color.FromArgb(21, 27, 35);
-            GameDirectoryTextBox.BorderStyle = BorderStyle.FixedSingle;
-            GameDirectoryTextBox.Enabled = false;
-            GameDirectoryTextBox.Font = new Font("Verdana", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            GameDirectoryTextBox.ForeColor = Color.FromArgb(134, 141, 150);
-            GameDirectoryTextBox.Location = new Point(61, 267);
-            GameDirectoryTextBox.Margin = new Padding(0);
-            GameDirectoryTextBox.Name = "GameDirectoryTextBox";
-            GameDirectoryTextBox.ReadOnly = true;
-            GameDirectoryTextBox.ShortcutsEnabled = false;
-            GameDirectoryTextBox.Size = new Size(358, 26);
-            GameDirectoryTextBox.TabIndex = 10;
             // 
             // GameDirectoryBrowser
             // 
@@ -133,12 +122,12 @@
             LogOutputTextBox.BackColor = Color.FromArgb(13, 17, 23);
             LogOutputTextBox.BorderStyle = BorderStyle.None;
             LogOutputTextBox.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            LogOutputTextBox.ForeColor = Color.FromArgb(240, 246, 252);
-            LogOutputTextBox.Location = new Point(16, 134);
+            LogOutputTextBox.ForeColor = Color.FromArgb(145, 152, 161);
+            LogOutputTextBox.Location = new Point(15, 132);
             LogOutputTextBox.Name = "LogOutputTextBox";
             LogOutputTextBox.ReadOnly = true;
             LogOutputTextBox.ScrollBars = RichTextBoxScrollBars.None;
-            LogOutputTextBox.Size = new Size(445, 214);
+            LogOutputTextBox.Size = new Size(443, 214);
             LogOutputTextBox.TabIndex = 11;
             LogOutputTextBox.Text = "";
             // 
@@ -152,6 +141,7 @@
             OpenLogsFolder.FlatAppearance.MouseDownBackColor = Color.FromArgb(21, 27, 35);
             OpenLogsFolder.FlatAppearance.MouseOverBackColor = Color.FromArgb(21, 27, 35);
             OpenLogsFolder.FlatStyle = FlatStyle.Flat;
+            OpenLogsFolder.Font = new Font("Verdana", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             OpenLogsFolder.ForeColor = Color.FromArgb(68, 147, 248);
             OpenLogsFolder.Location = new Point(12, 384);
             OpenLogsFolder.Name = "OpenLogsFolder";
@@ -170,10 +160,10 @@
             AutoOpenOutput.FlatAppearance.CheckedBackColor = Color.FromArgb(68, 147, 248);
             AutoOpenOutput.FlatStyle = FlatStyle.Flat;
             AutoOpenOutput.Font = new Font("Yu Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            AutoOpenOutput.Location = new Point(295, 354);
+            AutoOpenOutput.Location = new Point(283, 354);
             AutoOpenOutput.Name = "AutoOpenOutput";
             AutoOpenOutput.RightToLeft = RightToLeft.Yes;
-            AutoOpenOutput.Size = new Size(164, 24);
+            AutoOpenOutput.Size = new Size(176, 24);
             AutoOpenOutput.TabIndex = 14;
             AutoOpenOutput.Text = "Open when finished";
             AutoOpenOutput.UseVisualStyleBackColor = false;
@@ -187,6 +177,7 @@
             OpenOutput.FlatAppearance.MouseDownBackColor = Color.FromArgb(21, 27, 35);
             OpenOutput.FlatAppearance.MouseOverBackColor = Color.FromArgb(21, 27, 35);
             OpenOutput.FlatStyle = FlatStyle.Flat;
+            OpenOutput.Font = new Font("Verdana", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             OpenOutput.ForeColor = Color.FromArgb(68, 147, 248);
             OpenOutput.Location = new Point(297, 384);
             OpenOutput.Name = "OpenOutput";
@@ -199,12 +190,12 @@
             // TopBar
             // 
             TopBar.BackColor = Color.FromArgb(1, 4, 9);
+            TopBar.BorderStyle = BorderStyle.FixedSingle;
             TopBar.Controls.Add(label1);
             TopBar.Controls.Add(MinimizeButton);
             TopBar.Controls.Add(CloseButton);
             TopBar.Cursor = Cursors.SizeAll;
-            TopBar.Dock = DockStyle.Top;
-            TopBar.Location = new Point(0, 0);
+            TopBar.Location = new Point(0, 1);
             TopBar.Margin = new Padding(0);
             TopBar.Name = "TopBar";
             TopBar.Size = new Size(473, 31);
@@ -213,7 +204,6 @@
             // label1
             // 
             label1.BackColor = Color.Transparent;
-            label1.Cursor = Cursors.Arrow;
             label1.Font = new Font("Verdana", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
@@ -227,7 +217,7 @@
             // 
             MinimizeButton.Cursor = Cursors.Hand;
             MinimizeButton.Image = (Image)resources.GetObject("MinimizeButton.Image");
-            MinimizeButton.Location = new Point(410, -1);
+            MinimizeButton.Location = new Point(409, -1);
             MinimizeButton.Name = "MinimizeButton";
             MinimizeButton.Size = new Size(32, 32);
             MinimizeButton.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -239,7 +229,7 @@
             // 
             CloseButton.Cursor = Cursors.Hand;
             CloseButton.Image = (Image)resources.GetObject("CloseButton.Image");
-            CloseButton.Location = new Point(441, -1);
+            CloseButton.Location = new Point(440, 0);
             CloseButton.Name = "CloseButton";
             CloseButton.Size = new Size(32, 32);
             CloseButton.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -263,21 +253,44 @@
             GameDirText.UseVisualStyleBackColor = true;
             GameDirText.Click += GameDirText_Click;
             // 
+            // VerboseCheckbox
+            // 
+            VerboseCheckbox.BackColor = Color.FromArgb(13, 17, 23);
+            VerboseCheckbox.Cursor = Cursors.Hand;
+            VerboseCheckbox.FlatAppearance.CheckedBackColor = Color.FromArgb(68, 147, 248);
+            VerboseCheckbox.FlatStyle = FlatStyle.Flat;
+            VerboseCheckbox.Font = new Font("Yu Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            VerboseCheckbox.Location = new Point(12, 354);
+            VerboseCheckbox.Name = "VerboseCheckbox";
+            VerboseCheckbox.Size = new Size(103, 24);
+            VerboseCheckbox.TabIndex = 18;
+            VerboseCheckbox.Text = "Verbose";
+            VerboseCheckbox.UseVisualStyleBackColor = false;
+            // 
+            // panel1
+            // 
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(LogOutputTextBox);
+            panel1.Location = new Point(0, 1);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(473, 431);
+            panel1.TabIndex = 19;
+            // 
             // Main
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.FromArgb(13, 17, 23);
             ClientSize = new Size(473, 432);
+            Controls.Add(VerboseCheckbox);
             Controls.Add(GameDirText);
             Controls.Add(TopBar);
             Controls.Add(OpenOutput);
             Controls.Add(AutoOpenOutput);
             Controls.Add(OpenLogsFolder);
-            Controls.Add(LogOutputTextBox);
-            Controls.Add(GameDirectoryTextBox);
             Controls.Add(SelectGameLabel);
             Controls.Add(SelectGameFolder);
             Controls.Add(dump);
+            Controls.Add(panel1);
             Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ForeColor = Color.FromArgb(240, 246, 252);
             FormBorderStyle = FormBorderStyle.None;
@@ -288,6 +301,7 @@
             TopBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)MinimizeButton).EndInit();
             ((System.ComponentModel.ISupportInitialize)CloseButton).EndInit();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -296,7 +310,6 @@
         private Button dump;
         private Button SelectGameFolder;
         private Label SelectGameLabel;
-        private TextBox GameDirectoryTextBox;
         private FolderBrowserDialog GameDirectoryBrowser;
         private OpenFileDialog OpenDllBrowser;
         private OpenFileDialog OpenMetaDataBrowser;
@@ -309,5 +322,7 @@
         private PictureBox MinimizeButton;
         private Label label1;
         private Button GameDirText;
+        private CheckBox VerboseCheckbox;
+        private Panel panel1;
     }
 }
