@@ -198,7 +198,7 @@
             TopBar.Location = new Point(0, 1);
             TopBar.Margin = new Padding(0);
             TopBar.Name = "TopBar";
-            TopBar.Size = new Size(473, 31);
+            TopBar.Size = new Size(473, 30);
             TopBar.TabIndex = 16;
             // 
             // label1
