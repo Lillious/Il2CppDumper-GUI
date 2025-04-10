@@ -195,7 +195,7 @@
             TopBar.Controls.Add(MinimizeButton);
             TopBar.Controls.Add(CloseButton);
             TopBar.Cursor = Cursors.SizeAll;
-            TopBar.Location = new Point(0, 1);
+            TopBar.Location = new Point(0, 0);
             TopBar.Margin = new Padding(0);
             TopBar.Name = "TopBar";
             TopBar.Size = new Size(473, 30);
