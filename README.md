@@ -1,7 +1,7 @@
 # Il2CppDumper GUI
 
 <p align="center">
-  <img src="https://github.com/Lillious/Il2CppDumper-GUI/blob/7f7eea196141a079294b9b0eda12ccabe4ea1fcf/Images/hero-image.png?raw=true">
+  <img src="https://github.com/Lillious/Il2CppDumper-GUI/blob/d9a05167c1af8451f17d8338ba3ea2f759fe44f2/Images/hero-image.png?raw=true">
 </p>
 
 ### Dependencies
